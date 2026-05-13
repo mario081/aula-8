@@ -1,0 +1,101 @@
+* { margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; }
+
+/* Estilo da página inteira */
+body {
+  background: #f0f2f5;        /* Cor de fundo cinza claro da página */
+  display: flex;              /* Ativa o modo flexbox para centralizar */
+  justify-content: center;   /* Centraliza na horizontal */
+  align-items: center;       /* Centraliza na vertical */
+  min-height: 100vh;         /* A página ocupa 100% da altura da janela */
+  font-family: Arial, sans-serif; /* Fonte usada em todo o texto */
+}
+
+/* Estilo do cartão principal */
+.cartao {
+  background: #00bcd4;   /* Cor de fundo azul do cartão */
+  width: 400px;          /* Largura do cartão */
+  border-radius: 15px;   /* Bordas arredondadas */
+  padding: 15px;         /* Espaço interno entre o conteúdo e a borda */
+  color: #fff;           /* Cor do texto: branco */
+}
+
+/* Estilo do cabeçalho (linha de cima com logo e nome do clube) */
+.topo {
+  display: flex;                              /* Coloca os itens lado a lado */
+  justify-content: space-between;            /* Um item à esquerda, outro à direita */
+  border-bottom: 1px solid rgba(255,255,255,0.3); /* Linha branca transparente embaixo */
+  padding-bottom: 10px;                      /* Espaço entre o texto e a linha */
+  margin-bottom: 12px;                       /* Espaço abaixo do cabeçalho */
+}
+
+/* Sigla da escola (SNE) */
+.id-escola { 
+    font-weight: 800; font-size: 19px; 
+}
+
+/* Nome do clube (canto direito do cabeçalho) */
+.label-clube { 
+    font-size: 11px; text-align: right; letter-spacing: 1px; 
+}
+
+/* Área com a foto e os dados lado a lado */
+.conteudo {
+  display: flex;  /* Coloca foto e dados lado a lado */
+  gap: 15px;      /* Espaço entre a foto e os dados */
+}
+
+/* Estilo da foto do aluno */
+.foto-aluno {
+  width: 100px;          /* Largura da foto */
+  height: 130px;         /* Altura da foto */
+  background: #eee;      /* Cor de fundo caso a foto não carregue */
+  border: 3px solid #fff; /* Borda branca ao redor da foto */ 
+  object-fit: cover;     /* A foto preenche o espaço sem distorcer */
+}
+
+img {
+  border-radius: 8px;
+}
+
+/* Grade de informações do aluno */
+.info-grid {
+    display: grid;                /* Organiza os itens em grade */
+    grid-template-columns: 1fr;  /* Uma coluna só */
+    gap: 4px;                    /* Espaço entre cada campo */
+}
+
+/* Rótulo pequeno acima de cada dado (ex: "NOME", "CPF") */
+.item .rotulo {
+  font-size: 10px;           /* Letra bem pequena */
+  text-transform: uppercase; /* Deixa o texto em MAIÚSCULO */
+  opacity: 0.8;              /* Levemente transparente */
+  display: block;            /* Ocupa a linha inteira, empurra o valor para baixo */
+}
+
+/* Valor de cada dado (ex: nome, número do CPF) */
+.item .valor {
+  font-size: 14px; /* Tamanho do texto */
+  font-weight: 600;   /* Negrito médio */
+}
+
+/* Estilo especial para o nome do aluno */
+.nome-destaque {
+  font-size: 18px !important; /* Letra maior que os outros valores */
+  color: #ffeb3b;               /* Cor amarela para destacar */
+}
+
+/* Rodapé do cartão (código e ano) */
+.rodape {
+  display: flex;                   /* Coloca itens lado a lado */
+  justify-content: space-between; /* Um à esquerda, outro à direita */
+  align-items: flex-end;          /* Alinha os itens pela base */
+  margin-top: 12px;               /* Espaço acima do rodapé */
+}
+
+/* Ano de validade (ex: 2026) */
+.validade { font-size: 29px; font-weight: 900; opacity: 0.5; font-style: italic; }
+
+/* Código de uso */
+.cod-uso { font-family: monospace; font-size: 11px; } /* Fonte estilo código/máquina */
