@@ -1,97 +1,129 @@
 * { margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; }
+  padding: 0; 
+  box-sizing: border-box; }
 
 /* Estilo da página inteira */
 body {
-  background: #f0f2f5;        /* Cor de fundo cinza claro da página */
-  display: flex;              /* Ativa o modo flexbox para centralizar */
-  justify-content: center;   /* Centraliza na horizontal */
-  align-items: center;       /* Centraliza na vertical */
-  min-height: 100vh;         /* A página ocupa 100% da altura da janela */
-  font-family: Arial, sans-serif; /* Fonte usada em todo o texto */
+background: #f0f2f5;        /* Cor de fundo cinza claro da página */
+display: flex;              /* Ativa o modo flexbox para centralizar */
+justify-content: center;   /* Centraliza na horizontal */
+align-items: center;       /* Centraliza na vertical */
+min-height: 100vh;         /* A página ocupa 100% da altura da janela */
+font-family: Arial, sans-serif; /* Fonte usada em todo o texto */
+}
+
+/* Estrutura da página (cartão + botão) */
+.pagina {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 15px;
+}
+
+/* Área com perspectiva para o efeito 3D */
+.cartao-wrapper {
+perspective: 1000px;
+width: 400px;
+height: 290px;
+}
+
+/* Elemento que gira */
+.cartao-flip {
+position: relative;
+width: 400px;
+height: 290px;
+transform-style: preserve-3d;
+transition: transform 0.7s ease;
+}
+
+/* Quando ativo, mostra o verso */
+.cartao-flip.virado {
+transform: rotateY(180deg);
 }
 
 /* Estilo do cartão principal */
 .cartao {
-  background: #00bcd4;   /* Cor de fundo azul do cartão */
-  width: 400px;          /* Largura do cartão */
-  border-radius: 15px;   /* Bordas arredondadas */
-  padding: 15px;         /* Espaço interno entre o conteúdo e a borda */
-  color: #fff;           /* Cor do texto: branco */
+background: #00bcd4;   /* Cor de fundo azul do cartão */
+width: 400px;          /* Largura do cartão */
+height: 290px;
+border-radius: 15px;   /* Bordas arredondadas */
+padding: 15px;         /* Espaço interno entre o conteúdo e a borda */
+color: #fff;           /* Cor do texto: branco */
+backface-visibility: hidden;
+position: absolute;
+top: 0;
+left: 0;
+overflow: hidden;
 }
 
 /* Estilo do cabeçalho (linha de cima com logo e nome do clube) */
 .topo {
-  display: flex;                              /* Coloca os itens lado a lado */
-  justify-content: space-between;            /* Um item à esquerda, outro à direita */
-  border-bottom: 1px solid rgba(255,255,255,0.3); /* Linha branca transparente embaixo */
-  padding-bottom: 10px;                      /* Espaço entre o texto e a linha */
-  margin-bottom: 12px;                       /* Espaço abaixo do cabeçalho */
+display: flex;                              /* Coloca os itens lado a lado */
+justify-content: space-between;            /* Um item à esquerda, outro à direita */
+border-bottom: 1px solid rgba(255,255,255,0.3); /* Linha branca transparente embaixo */
+padding-bottom: 10px;                      /* Espaço entre o texto e a linha */
+margin-bottom: 12px;                       /* Espaço abaixo do cabeçalho */
 }
 
 /* Sigla da escola (SNE) */
 .id-escola { 
-    font-weight: 800; font-size: 19px; 
+  font-weight: 800; font-size: 19px; 
 }
 
 /* Nome do clube (canto direito do cabeçalho) */
 .label-clube { 
-    font-size: 11px; text-align: right; letter-spacing: 1px; 
+  font-size: 11px; text-align: right; letter-spacing: 1px; 
 }
 
 /* Área com a foto e os dados lado a lado */
 .conteudo {
-  display: flex;  /* Coloca foto e dados lado a lado */
-  gap: 15px;      /* Espaço entre a foto e os dados */
+display: flex;  /* Coloca foto e dados lado a lado */
+gap: 15px;      /* Espaço entre a foto e os dados */
 }
 
 /* Estilo da foto do aluno */
 .foto-aluno {
-  width: 100px;          /* Largura da foto */
-  height: 130px;         /* Altura da foto */
-  background: #eee;      /* Cor de fundo caso a foto não carregue */
-  border: 3px solid #fff; /* Borda branca ao redor da foto */ 
-  object-fit: cover;     /* A foto preenche o espaço sem distorcer */
-}
-
-img {
-  border-radius: 8px;
+width: 100px;          /* Largura da foto */
+height: 130px;         /* Altura da foto */
+background: #eee;      /* Cor de fundo caso a foto não carregue */
+border: 3px solid #fff; /* Borda branca ao redor da foto */
+border-radius: 8px;    /* Bordas levemente arredondadas */
+object-fit: cover;     /* A foto preenche o espaço sem distorcer */
 }
 
 /* Grade de informações do aluno */
 .info-grid {
-    display: grid;                /* Organiza os itens em grade */
-    grid-template-columns: 1fr;  /* Uma coluna só */
-    gap: 4px;                    /* Espaço entre cada campo */
+  display: grid;                /* Organiza os itens em grade */
+  grid-template-columns: 1fr;  /* Uma coluna só */
+  gap: 4px;                    /* Espaço entre cada campo */
 }
 
 /* Rótulo pequeno acima de cada dado (ex: "NOME", "CPF") */
 .item .rotulo {
-  font-size: 10px;           /* Letra bem pequena */
-  text-transform: uppercase; /* Deixa o texto em MAIÚSCULO */
-  opacity: 0.8;              /* Levemente transparente */
-  display: block;            /* Ocupa a linha inteira, empurra o valor para baixo */
+font-size: 10px;           /* Letra bem pequena */
+text-transform: uppercase; /* Deixa o texto em MAIÚSCULO */
+opacity: 0.8;              /* Levemente transparente */
+display: block;            /* Ocupa a linha inteira, empurra o valor para baixo */
 }
 
 /* Valor de cada dado (ex: nome, número do CPF) */
 .item .valor {
-  font-size: 14px; /* Tamanho do texto */
-  font-weight: 600;   /* Negrito médio */
+font-size: 14px; /* Tamanho do texto */
+font-weight: 600;   /* Negrito médio */
 }
 
 /* Estilo especial para o nome do aluno */
 .nome-destaque {
-  font-size: 18px !important; /* Letra maior que os outros valores */
-  color: #ffeb3b;               /* Cor amarela para destacar */
+font-size: 18px !important; /* Letra maior que os outros valores */
+color: #ffeb3b;               /* Cor amarela para destacar */
 }
 
 /* Rodapé do cartão (código e ano) */
 .rodape {
-  display: flex;                   /* Coloca itens lado a lado */
-  justify-content: space-between; /* Um à esquerda, outro à direita */
-  align-items: flex-end;          /* Alinha os itens pela base */
-  margin-top: 12px;               /* Espaço acima do rodapé */
+display: flex;                   /* Coloca itens lado a lado */
+justify-content: space-between; /* Um à esquerda, outro à direita */
+align-items: flex-end;          /* Alinha os itens pela base */
+margin-top: 12px;               /* Espaço acima do rodapé */
 }
 
 /* Ano de validade (ex: 2026) */
@@ -99,3 +131,42 @@ img {
 
 /* Código de uso */
 .cod-uso { font-family: monospace; font-size: 11px; } /* Fonte estilo código/máquina */
+
+/* Face de trás do cartão */
+.cartao-verso {
+transform: rotateY(180deg);
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+
+.tarja {
+height: 40px;
+background: rgba(0, 0, 0, 0.7);
+border-radius: 6px;
+margin: 10px 0 15px;
+}
+
+.assinatura {
+background: #fff;
+color: #333;
+border-radius: 6px;
+padding: 8px;
+font-size: 12px;
+}
+
+.texto-verso {
+font-size: 12px;
+line-height: 1.4;
+opacity: 0.95;
+}
+
+.btn-virar {
+padding: 10px 16px;
+border: none;
+border-radius: 8px;
+cursor: pointer;
+font-weight: 600;
+position: relative;
+z-index: 2;
+}

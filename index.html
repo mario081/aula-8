@@ -1,65 +1,113 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+<!DOCTYPE html> <!-- Diz ao navegador que é um arquivo HTML5 -->
+<html lang="pt-BR"> <!-- Abre o documento, lang="pt-BR" define o idioma como português -->
+<head> <!-- Parte invisível: configurações e estilos da página -->
+  <meta charset="UTF-8" /> <!-- Permite usar acentos: ç ã é ó... -->
+  <link rel="stylesheet" href="style.css">
+  <title>Carteirinha de Estudante 2026</title> <!-- Nome que aparece na aba do navegador -->
 </head>
-<body>
-    <div class="cartao">
+<body> <!-- Tudo que aparece na tela fica aqui -->
+  <div class="pagina">
+    <div class="cartao-wrapper">
+      <div class="cartao-flip" id="cartaoFlip">
+        <!-- Frente do cartão -->
+        <div class="cartao">
 
-        <!-- Cabeçalho: logo da instituição e nome do clube -->
-        <div class="topo">
-          <div class="id-escola">
-            SNE <br>
-            <span style="font-size: 10px; font-weight: normal;">Sociedade Nacional dos Estudantes</span>
+          <!-- Cabeçalho: logo da instituição e nome do clube -->
+          <div class="topo">
+            <div class="id-escola">
+              SNE <br>
+              <span style="font-size: 10px; font-weight: normal;">Sociedade Nacional dos Estudantes</span>
+            </div>
+            <div class="label-clube">CLUBE DO<br><strong>ESTUDANTE</strong></div>
           </div>
-          <div class="label-clube">CLUBE DO<br><strong>ESTUDANTE</strong></div>
-        </div>
-    
-        <!-- Corpo: foto do aluno + dados -->
-        <div class="conteudo">
-    
-          <!-- Foto: coloque o arquivo foto.jpg na mesma pasta -->
-          <img src="/img/OIP.webp" height="130px" width="100px" alt="Foto do estudante" />
-    
-          <!-- Lista de dados do aluno -->
-          <div class="info-grid">
-    
-            <!-- Campo: Nome -->
-            <div class="item">
-              <span class="rotulo">Nome do Aluno</span>
-              <span class="valor nome-destaque">MICAEL DAVID</span>
+
+          <!-- Corpo: foto do aluno + dados -->
+          <div class="conteudo">
+
+            <!-- Foto: coloque o arquivo foto.jpg na mesma pasta -->
+            <img src="/img/OIP.webp" height="130px" width="100px" alt="Foto do estudante" />
+
+            <!-- Lista de dados do aluno -->
+            <div class="info-grid">
+
+              <!-- Campo: Nome -->
+              <div class="item">
+                <span class="rotulo">Nome do Aluno</span>
+                <span class="valor nome-destaque">MICAEL DAVID</span>
+              </div>
+
+              <!-- Campo: CPF -->
+              <div class="item">
+                <span class="rotulo">CPF</span>
+                <span class="valor">000.000.000-00</span>
+              </div>
+
+              <!-- Campo: Instituição e Curso -->
+              <div class="item">
+                <span class="rotulo">Instituição / Curso</span>
+                <span class="valor">UniFavip | Ciência da Computação</span>
+              </div>
+
+              <!-- Campo: Matrícula -->
+              <div class="item">
+                <span class="rotulo">Matrícula</span>
+                <span class="valor">#2026-9988</span>
+              </div>
+
             </div>
-    
-            <!-- Campo: CPF -->
-            <div class="item">
-              <span class="rotulo">CPF</span>
-              <span class="valor">000.000.000-00</span>
-            </div>
-    
-            <!-- Campo: Instituição e Curso -->
-            <div class="item">
-              <span class="rotulo">Instituição / Curso</span>
-              <span class="valor">UniFavip | Ciência da Computação</span>
-            </div>
-    
-            <!-- Campo: Matrícula -->
-            <div class="item">
-              <span class="rotulo">Matrícula</span>
-              <span class="valor">#2026-9988</span>
-            </div>
-    
+          </div>
+
+          <!-- Rodapé: código de uso e ano de validade -->
+          <div class="rodape">
+            <div class="cod-uso">ID: 99-XYZ-2026</div>
+            <div class="validade">2026</div>
           </div>
         </div>
-    
-        <!-- Rodapé: código de uso e ano de validade -->
-        <div class="rodape">
-          <div class="cod-uso">ID: 99-XYZ-2026</div>
-          <div class="validade">2026</div>
+
+        <!-- Verso do cartão -->
+        <div class="cartao cartao-verso">
+          <div>
+            <div class="topo">
+              <div class="id-escola">VERSO</div>
+              <div class="label-clube">DOCUMENTO<br><strong>ESTUDANTIL</strong></div>
+            </div>
+            <div class="tarja"></div>
+            <div class="assinatura">
+              Assinatura do estudante: ____________________
+            </div>
+          </div>
+          <div class="texto-verso">
+            Este cartão é pessoal e intransferível.<br>
+            Em caso de perda, comunicar a instituição.<br>
+            Contato: secretaria@unifavip.edu.br
+          </div>
         </div>
-    
       </div>
-</body>
-</html>
+    </div>
+    <div>
+      <button onclick="virarCartao()" class="btn-virar" id="btnVirar">
+        Ver verso do cartão
+      </button>
+      <button onclick="mostrarMensagem()" class="btn-virar">
+        Testar JavaScript
+      </button>
+    </div>
+  </div>
+
+  <script>
+    function virarCartao() {
+      const cartao = document.getElementById("cartaoFlip");
+      const botao = document.getElementById("btnVirar");
+      cartao.classList.toggle("virado");
+      botao.textContent = cartao.classList.contains("virado")
+        ? "Ver frente do cartão"
+        : "Ver verso do cartão";
+    }
+
+    function mostrarMensagem() {
+      alert("Olá, alunos! Esse é um exemplo simples de JavaScript.");
+    }
+  </script>
+
+</body> <!-- Fim do conteúdo visível -->
+</html> <!-- Fecha o documento -->
